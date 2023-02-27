@@ -13,18 +13,7 @@ export const RestaurantInfo = ({ restaurant }) => {
         rating = '10',
         isClosedTemporarily }
         = restaurant
-    const list = photos.map((photo) => {
-        <Card>
-            <Card.Cover source={{ uri: photo }} />
-            <Card.Title title="Restaurant 1" subtitle="Taco King" />
-            <Card.Content>
-                <Text>Card TITLE</Text>
-                <Text>Content</Text>
-            </Card.Content>
 
-        </Card>
-
-    })
     return (
         <>
             {photos.map((photo) => {
