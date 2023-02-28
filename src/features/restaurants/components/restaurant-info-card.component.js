@@ -6,7 +6,18 @@ import styled from 'styled-components'
 
 const Title = styled.Text`
     padding:16px;
-    color:red;
+    color:red; 
+`
+
+const CardItem = styled(View)`
+    margin-bottom : 10px;
+`
+const RestaurantCard = styled(Card)`
+    background-color:white;
+`
+const RestaurantCardCover = styled(Card.Cover)`
+    padding: 20px;
+    background-color: white;
 `
 export const RestaurantInfoCard = ({ restaurant }) => {
     //  Destructing
@@ -24,17 +35,17 @@ export const RestaurantInfoCard = ({ restaurant }) => {
             <ScrollView>
                 {photos.map((photo, index) => {
                     return (
-                        <View style={styles.cardItem}>
-                            <Card key={index} elevation={5} style={styles.card}>
-                                <Card.Cover style={styles.cover} source={{ uri: photo }} />
+                        <CardItem>
+                            <RestaurantCard key={index} elevation={5} >
+                                <RestaurantCardCover source={{ uri: photo }} />
                                 <Card.Title title={`Restaurant ${index + 1}`} subtitle={name} />
                                 <Card.Content>
                                     <Title>{name}</Title>
                                     <Text>{address}</Text>
                                 </Card.Content>
 
-                            </Card>
-                        </View>
+                            </RestaurantCard>
+                        </CardItem>
 
                     )
 
