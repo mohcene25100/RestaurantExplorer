@@ -13,7 +13,7 @@ const SearchContainer = styled(View)`
     padding: 16px;
 
 `
-const RestaurantInfoContainer = styled(View)`
+const RestaurantListContainer = styled(View)`
     flex: 1;
     background-color: blue;
     padding: 16px;
@@ -33,9 +33,9 @@ export const RestaurantScreen = () => {
                         value={query}
                     />
                 </SearchContainer>
-                <RestaurantInfoContainer>
+                <RestaurantListContainer>
                     <RestaurantInfoCard restaurant={{}} />
-                </RestaurantInfoContainer>
+                </RestaurantListContainer>
             </SafeArea>
 
         </>
