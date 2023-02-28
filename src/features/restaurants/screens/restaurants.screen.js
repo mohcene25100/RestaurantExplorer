@@ -7,7 +7,10 @@ import { RestaurantInfoCard } from '../components/restaurant-info-card.component
 
 const SafeArea = styled(SafeAreaView)`
     flex: 1;
-    margin-top: ${StatusBar.currentHeight}px;
+     ${'' /* We have a bug here in IOS phones when we write like this 
+         margin-top: ${StatusBar.currentHeight}px;
+ */}
+    ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `
 const SearchContainer = styled(View)`
     padding: 16px;
