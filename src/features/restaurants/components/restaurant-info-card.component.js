@@ -5,30 +5,34 @@ import styled from 'styled-components'
 
 
 const Title = styled.Text`
-    padding:16px;
-    color:${(props) => props.theme.colors.ui.quaternary}
+    padding:${props => props.theme.space[3]};
+    color:${(props) => props.theme.colors.ui.primary}
 `
 
 const CardItem = styled(View)`
-    margin-bottom : 10px;
+    margin-bottom : ${props => props.theme.space[2]};
 `
 const RestaurantCard = styled(Card)`
-    background-color:white;
+    background-color:${props => props.theme.colors.bg.primary};
 `
 const RestaurantCardCover = styled(Card.Cover)`
-    padding: 20px;
-    background-color: white;
+    padding: ${props => props.theme.space[3]};
+    background-color: ${props => props.theme.colors.bg.primary};
 `
+
 export const RestaurantInfoCard = ({ restaurant }) => {
+
     //  Destructing
+
     const { name = 'Taco King',
         icon,
-        address = 'Gambita Street',
+        address = '199, Gambita Street, Algiers',
         photos = ["https://i.pinimg.com/736x/eb/e7/65/ebe7655e8047a8635d30e8603dc049ff.jpg", "https://w7.pngwing.com/pngs/686/527/png-transparent-fast-food-hamburger-sushi-pizza-fast-food-food-breakfast-fast-food-restaurant-thumbnail.png", "https://ak-d.tripcdn.com/images/1i65x2215bvic5sjk39C0_R_400_10000_R5_Q90.jpg_.webp?proc=source/trip"],
         isOpenNow = true,
         rating = '10',
         isClosedTemporarily }
         = restaurant
+
 
     return (
         <>
@@ -40,7 +44,6 @@ export const RestaurantInfoCard = ({ restaurant }) => {
                                 <RestaurantCardCover source={{ uri: photo }} />
                                 <Card.Title title={`Restaurant ${index + 1}`} subtitle={name} />
                                 <Card.Content>
-                                    <Title>{name}</Title>
                                     <Text>{address}</Text>
                                 </Card.Content>
 
@@ -56,6 +59,9 @@ export const RestaurantInfoCard = ({ restaurant }) => {
 
     )
 }
+
+// WE DON'T NEED IT ANYMORE AFTER REPLACING IT WITH "STYLED-COMPONENTS"
+
 const styles = StyleSheet.create({
     card: {
         backgroundColor: 'white',
