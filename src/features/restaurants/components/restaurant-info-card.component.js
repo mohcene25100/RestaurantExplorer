@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const Title = styled.Text`
     padding:16px;
-    color:red; 
+    color:${(props) => props.theme.colors.ui.quaternary}
 `
 
 const CardItem = styled(View)`
