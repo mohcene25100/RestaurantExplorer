@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
+import { View, Text, FlatList, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
 import { Searchbar } from 'react-native-paper'
 import styled from 'styled-components'
 
@@ -19,11 +19,6 @@ const SearchContainer = styled(View)`
 
 `
 
-const RestaurantListContainer = styled(View)`
-    flex: 1;
-    background-color: ${props => props.theme.colors.bg.tertiary};
-    padding: ${props => props.theme.space[3]};
-`
 
 
 export const RestaurantScreen = () => {
@@ -41,9 +36,12 @@ export const RestaurantScreen = () => {
                         value={query}
                     />
                 </SearchContainer>
-                <RestaurantListContainer>
-                    <RestaurantInfoCard restaurant={{}} />
-                </RestaurantListContainer>
+                <FlatList
+                    data={[{ name: 1 }, { name: 2 }, { name: 3 }]}
+                    renderItem={() => <RestaurantInfoCard restaurant={{}} />}
+                    keyExtractor={(item) => item.name}
+                    contentContainerStyle={{ padding: 16 }}
+                />
             </SafeArea>
 
         </>

@@ -8,11 +8,11 @@ import openshop from '../../../../assets/open'
 
 
 
-const CardItem = styled(View)`
-    margin-bottom : ${props => props.theme.space[2]};
-`
+
 const RestaurantCard = styled(Card)`
     background-color:${props => props.theme.colors.bg.primary};
+    margin-bottom : ${props => props.theme.space[3]};
+
 `
 const RestaurantCardCover = styled(Card.Cover)`
     padding: ${props => props.theme.space[3]};
@@ -62,39 +62,31 @@ export const RestaurantInfoCard = ({ restaurant }) => {
     const ratingArray = Array.from(new Array(Math.floor(rating)))
     return (
         <>
-            <ScrollView>
-                {photos.map((photo, index) => {
-                    return (
-                        <CardItem key={index}>
-                            <RestaurantCard elevation={5} >
-                                <RestaurantCardCover source={{ uri: photo }} />
-                                <Info>
-                                    <Title>{`Restaurant ${index + 1}`}</Title>
-                                    <Section>
-                                        <Rating>
-                                            {ratingArray.map((rating, index) => {
-                                                return <SvgXml key={index} xml={star} width={20} height={20} />
-                                            })}
-                                        </Rating>
-                                        <SectionEnd>
-                                            {isClosedTemporarily && <Text variant='label' style={{ color: 'red' }}>CLOSED TEMPORARILY</Text>}
-                                            <View style={{ paddingLeft: 16 }} />
-                                            {isOpenNow && <SvgXml xml={openshop} width={20} height={20} />}
-                                            <Image style={{ marginLeft: 16, width: 15, height: 15 }} source={{ uri: icon }} />
-                                        </SectionEnd>
-                                    </Section>
 
-                                    <Address>{address}</Address>
-                                </Info>
+            <RestaurantCard elevation={5} >
+                <RestaurantCardCover source={{ uri: photos[0] }} />
+                <Info>
+                    <Title>{name}</Title>
+                    <Section>
+                        <Rating>
+                            {ratingArray.map((rating, index) => {
+                                return <SvgXml key={index} xml={star} width={20} height={20} />
+                            })}
+                        </Rating>
+                        <SectionEnd>
+                            {isClosedTemporarily && <Text variant='label' style={{ color: 'red' }}>CLOSED TEMPORARILY</Text>}
+                            <View style={{ paddingLeft: 16 }} />
+                            {isOpenNow && <SvgXml xml={openshop} width={20} height={20} />}
+                            <Image style={{ marginLeft: 16, width: 15, height: 15 }} source={{ uri: icon }} />
+                        </SectionEnd>
+                    </Section>
+
+                    <Address>{address}</Address>
+                </Info>
 
 
-                            </RestaurantCard>
-                        </CardItem>
+            </RestaurantCard>
 
-                    )
-
-                })}
-            </ScrollView>
 
         </>
 
