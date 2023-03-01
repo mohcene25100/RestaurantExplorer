@@ -5,8 +5,8 @@ import styled from 'styled-components'
 
 
 const Title = styled.Text`
-    font-family: ${(props) => props.theme.fonts.body}
-    padding:${props => props.theme.space[3]};
+    font-family: ${(props) => props.theme.fonts.heading};
+    font-size:${props => props.theme.fontSizes.title};
     color:${(props) => props.theme.colors.ui.primary}
 `
 
@@ -19,6 +19,13 @@ const RestaurantCard = styled(Card)`
 const RestaurantCardCover = styled(Card.Cover)`
     padding: ${props => props.theme.space[3]};
     background-color: ${props => props.theme.colors.bg.primary};
+`
+const Info = styled(View)`
+    padding: ${props => props.theme.space[3]}
+`
+const Address = styled(Text)`
+    font-family: ${(props) => props.theme.fonts.body};
+    font-size: ${props => props.theme.fontSizes.caption}
 `
 
 export const RestaurantInfoCard = ({ restaurant }) => {
@@ -43,10 +50,11 @@ export const RestaurantInfoCard = ({ restaurant }) => {
                         <CardItem key={index}>
                             <RestaurantCard elevation={5} >
                                 <RestaurantCardCover source={{ uri: photo }} />
-                                <Title>{`Restaurant ${index + 1}`}</Title>
-                                <Card.Content>
-                                    <Text>{address}</Text>
-                                </Card.Content>
+                                <Info>
+                                    <Title>{`Restaurant ${index + 1}`}</Title>
+                                    <Address>{address}</Address>
+                                </Info>
+
 
                             </RestaurantCard>
                         </CardItem>
