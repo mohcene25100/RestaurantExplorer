@@ -2,13 +2,10 @@ import React from 'react'
 import { View, StyleSheet, Text, Image, ScrollView } from 'react-native'
 import { Card } from 'react-native-paper'
 import styled from 'styled-components'
+import { SvgXml } from 'react-native-svg'
+import star from '../../../../assets/star'
 
 
-const Title = styled.Text`
-    font-family: ${(props) => props.theme.fonts.heading};
-    font-size:${props => props.theme.fontSizes.title};
-    color:${(props) => props.theme.colors.ui.primary}
-`
 
 const CardItem = styled(View)`
     margin-bottom : ${props => props.theme.space[2]};
@@ -23,9 +20,19 @@ const RestaurantCardCover = styled(Card.Cover)`
 const Info = styled(View)`
     padding: ${props => props.theme.space[3]}
 `
+const Title = styled.Text`
+    font-family: ${(props) => props.theme.fonts.heading};
+    font-size:${props => props.theme.fontSizes.title};
+    color:${(props) => props.theme.colors.ui.primary}
+`
 const Address = styled(Text)`
     font-family: ${(props) => props.theme.fonts.body};
     font-size: ${props => props.theme.fontSizes.caption}
+`
+const Rating = styled(View)`
+    flex-direction:row;
+    padding-top:${props => props.theme.space[2]}
+    padding-bottom:${props => props.theme.space[2]}
 `
 
 export const RestaurantInfoCard = ({ restaurant }) => {
@@ -37,11 +44,11 @@ export const RestaurantInfoCard = ({ restaurant }) => {
         address = '199, Gambita Street, Algiers',
         photos = ["https://i.pinimg.com/736x/eb/e7/65/ebe7655e8047a8635d30e8603dc049ff.jpg", "https://w7.pngwing.com/pngs/686/527/png-transparent-fast-food-hamburger-sushi-pizza-fast-food-food-breakfast-fast-food-restaurant-thumbnail.png", "https://ak-d.tripcdn.com/images/1i65x2215bvic5sjk39C0_R_400_10000_R5_Q90.jpg_.webp?proc=source/trip"],
         isOpenNow = true,
-        rating = '10',
+        rating = 3.2,
         isClosedTemporarily }
         = restaurant
 
-
+    const ratingArray = Array.from(new Array(Math.floor(rating)))
     return (
         <>
             <ScrollView>
@@ -52,6 +59,12 @@ export const RestaurantInfoCard = ({ restaurant }) => {
                                 <RestaurantCardCover source={{ uri: photo }} />
                                 <Info>
                                     <Title>{`Restaurant ${index + 1}`}</Title>
+                                    <Rating>
+                                        {ratingArray.map((index) => {
+                                            return <SvgXml key={index} xml={star} width={20} height={20} />
+                                        })}
+                                    </Rating>
+
                                     <Address>{address}</Address>
                                 </Info>
 
@@ -68,6 +81,11 @@ export const RestaurantInfoCard = ({ restaurant }) => {
 
     )
 }
+
+
+
+
+
 
 // WE DON'T NEED IT ANYMORE AFTER REPLACING IT WITH "STYLED-COMPONENTS"
 
