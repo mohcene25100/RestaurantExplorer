@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 
 const Title = styled.Text`
+    font-family: ${(props) => props.theme.fonts.body}
     padding:${props => props.theme.space[3]};
     color:${(props) => props.theme.colors.ui.primary}
 `
@@ -39,10 +40,10 @@ export const RestaurantInfoCard = ({ restaurant }) => {
             <ScrollView>
                 {photos.map((photo, index) => {
                     return (
-                        <CardItem>
-                            <RestaurantCard key={index} elevation={5} >
+                        <CardItem key={index}>
+                            <RestaurantCard elevation={5} >
                                 <RestaurantCardCover source={{ uri: photo }} />
-                                <Card.Title title={`Restaurant ${index + 1}`} subtitle={name} />
+                                <Title>{`Restaurant ${index + 1}`}</Title>
                                 <Card.Content>
                                     <Text>{address}</Text>
                                 </Card.Content>
