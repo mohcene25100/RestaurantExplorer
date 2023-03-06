@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
-import { View, Text, FlatList, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
+import { View, FlatList, StyleSheet, StatusBar } from 'react-native'
 import { Searchbar } from 'react-native-paper'
 import styled from 'styled-components'
 
+import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component'
 
 
 // We have a bug here in IOS phones when we write like this 
 // margin-top: ${StatusBar.currentHeight}px;
 
-const SafeArea = styled(SafeAreaView)`
-    flex: 1;
-    ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-`
+
 
 const SearchContainer = styled(View)`
     padding: ${props => props.theme.space[3]};
@@ -24,7 +22,6 @@ const RestaurantList = styled(FlatList).attrs({
 
     }
 })`
-
 `
 
 
