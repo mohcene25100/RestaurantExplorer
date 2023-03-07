@@ -1,4 +1,5 @@
 import { mocks } from './mocks'
+import camelize from 'camelize'
 
 export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
 
@@ -20,9 +21,13 @@ export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
 
 
 }
+
+const restaurantTransform = (result) => {
+    return camelize(result)
+}
 // restaurantRequest() will not work because it's an async func
 // We need .then()
-restaurantsRequest().then((result) => {
-    console.log(result)
-})
+restaurantsRequest()
+    .then(restaurantTransform)
+    .then((transformedResponse) => { console.log(transformedResponse) })
     .catch(err => console.log(err))
