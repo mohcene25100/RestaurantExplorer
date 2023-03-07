@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { View, FlatList, StyleSheet, StatusBar } from 'react-native'
 import { Searchbar } from 'react-native-paper'
 import styled from 'styled-components'
@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component'
-
+import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
 
 const SearchContainer = styled(View)`
     padding: ${props => props.theme.space[3]};
@@ -22,6 +22,7 @@ const RestaurantList = styled(FlatList).attrs({
 
 
 export const RestaurantScreen = () => {
+    const restaurantsContext = useContext(RestaurantsContext)
     const [query, setQuery] = useState(null)
     console.log(query)
     return (
@@ -37,7 +38,7 @@ export const RestaurantScreen = () => {
                     />
                 </SearchContainer>
                 <RestaurantList
-                    data={[{ name: 1 }, { name: 2 }, { name: 3 }]}
+                    data={restaurantsContext.restaurants}
                     renderItem={() => <RestaurantInfoCard restaurant={{}} />}
                     keyExtractor={(item) => item.name}
 
