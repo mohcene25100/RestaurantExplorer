@@ -13,6 +13,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from './src/infrastructure/theme'
 import { RestaurantScreen } from './src/features/restaurants/screens/restaurants.screen'
 import { SafeArea } from "./src/components/utility/safe-area.component";
+import { restaurantsRequest } from "./src/services/restaurants/restaurants.service"
 
 import {
   useFonts as useOswald,
@@ -45,7 +46,6 @@ const createScreenOptions = ({ route }) => ({
 
 const Tab = createBottomTabNavigator()
 const MyTabs = () => {
-
   return (
 
     <Tab.Navigator screenOptions={createScreenOptions} >
@@ -55,8 +55,6 @@ const MyTabs = () => {
     </Tab.Navigator>
   )
 }
-
-
 
 export default App = () => {
 
@@ -77,7 +75,6 @@ export default App = () => {
         <NavigationContainer>
           {MyTabs()}
         </NavigationContainer>
-
       </ThemeProvider>
       <ExpoStatusBar style="dark" />
     </>
