@@ -22,7 +22,7 @@ const RestaurantList = styled(FlatList).attrs({
 
 
 export const RestaurantScreen = () => {
-    const restaurantsContext = useContext(RestaurantsContext)
+    const { restaurants, isLoading, error } = useContext(RestaurantsContext)
     const [query, setQuery] = useState(null)
     console.log(query)
     return (
@@ -38,8 +38,8 @@ export const RestaurantScreen = () => {
                     />
                 </SearchContainer>
                 <RestaurantList
-                    data={restaurantsContext.restaurants}
-                    renderItem={() => <RestaurantInfoCard restaurant={{}} />}
+                    data={restaurants}
+                    renderItem={({ item }) => <RestaurantInfoCard restaurant={item} />}
                     keyExtractor={(item) => item.name}
 
                 />
