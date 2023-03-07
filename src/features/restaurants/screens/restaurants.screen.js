@@ -3,13 +3,9 @@ import { View, FlatList, StyleSheet, StatusBar } from 'react-native'
 import { Searchbar } from 'react-native-paper'
 import styled from 'styled-components'
 
+
 import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component'
-
-
-// We have a bug here in IOS phones when we write like this 
-// margin-top: ${StatusBar.currentHeight}px;
-
 
 
 const SearchContainer = styled(View)`
@@ -23,8 +19,6 @@ const RestaurantList = styled(FlatList).attrs({
     }
 })`
 `
-
-
 
 
 export const RestaurantScreen = () => {
@@ -49,6 +43,7 @@ export const RestaurantScreen = () => {
 
                 />
             </SafeArea>
+
 
         </>
 
