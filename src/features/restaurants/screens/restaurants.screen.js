@@ -30,7 +30,6 @@ const LoadingContainer = styled(View)`
 
 export const RestaurantScreen = () => {
     const { restaurants, isLoading, error } = useContext(RestaurantsContext)
-    const [query, setQuery] = useState(null)
     return (
         <>
             {/* "SafeAreaView" works with "flex:1" only in IOS 
