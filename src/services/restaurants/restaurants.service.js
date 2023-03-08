@@ -12,9 +12,7 @@ export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
         // Here location is the key of the mocks
 
         const mock = mocks[location]
-        if (!mock) {
-            reject('Not found')
-        }
+        !mock && reject('Not Found !')
         resolve(mock)
 
     })
