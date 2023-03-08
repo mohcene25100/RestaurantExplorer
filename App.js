@@ -15,6 +15,7 @@ import { RestaurantScreen } from './src/features/restaurants/screens/restaurants
 import { SafeArea } from "./src/components/utility/safe-area.component";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/locations/location.context";
+
 import {
   useFonts as useOswald,
   Oswald_400Regular

@@ -41,4 +41,4 @@ export const restaurantTransform = (result) => {
 // restaurantsRequest()
 //     .then(restaurantTransform)
 //     .then((transformedResponse) => { console.log(transformedResponse) })
-//     .catch(err => console.log(err))
+//     .catch(err => (err))
