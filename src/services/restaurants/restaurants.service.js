@@ -1,7 +1,7 @@
 import { mocks, mockImages } from './mocks'
 import camelize from 'camelize'
 
-export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
+export const restaurantsRequest = (location) => {
 
     // We want to memic Google Api Service
     // So we've used a Promise which is Asynchronous
