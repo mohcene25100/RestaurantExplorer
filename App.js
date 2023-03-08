@@ -15,7 +15,7 @@ import { RestaurantScreen } from './src/features/restaurants/screens/restaurants
 import { SafeArea } from "./src/components/utility/safe-area.component";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/locations/location.context";
-
+import { Navigation } from './src/infrastructure/navigation'
 import {
   useFonts as useOswald,
   Oswald_400Regular
@@ -43,20 +43,9 @@ const createScreenOptions = ({ route }) => ({
   },
   tabBarActiveTintColor: "tomato",
   tabBarInactiveTintColor: "gray",
-  headerShown: false,
 })
 
-const Tab = createBottomTabNavigator()
-const MyTabs = () => {
-  return (
 
-    <Tab.Navigator screenOptions={createScreenOptions} >
-      <Tab.Screen name="Restaurants" component={RestaurantScreen} />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
-  )
-}
 
 export default App = () => {
 
@@ -76,9 +65,7 @@ export default App = () => {
       <ThemeProvider theme={theme}>
         <LocationContextProvider>
           <RestaurantsContextProvider>
-            <NavigationContainer>
-              {MyTabs()}
-            </NavigationContainer>
+            <Navigation />
           </RestaurantsContextProvider>
         </LocationContextProvider>
       </ThemeProvider>
