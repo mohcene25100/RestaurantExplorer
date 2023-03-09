@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { View, FlatList, StyleSheet, StatusBar, Pressable } from 'react-native'
+import { View, FlatList, StyleSheet, StatusBar, TouchableOpacity } from 'react-native'
 import { ActivityIndicator } from 'react-native-paper'
 import styled from 'styled-components'
 
@@ -48,9 +48,9 @@ export const RestaurantScreen = ({ navigation }) => {
                     data={restaurants}
                     renderItem={({ item }) => {
                         return (
-                            <Pressable onPress={() => { navigation.navigate('RestaurantDetails') }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('RestaurantDetails') }}>
                                 <RestaurantInfoCard restaurant={item} />
-                            </Pressable>
+                            </TouchableOpacity>
 
                         )
 
