@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { View, FlatList, StyleSheet, StatusBar } from 'react-native'
+import { View, FlatList, StyleSheet, StatusBar, Pressable } from 'react-native'
 import { ActivityIndicator } from 'react-native-paper'
 import styled from 'styled-components'
 
@@ -27,9 +27,10 @@ const LoadingContainer = styled(View)`
   left: 50%;
 `
 
-
-export const RestaurantScreen = () => {
+// {navigation} property is gained from the inner components of the stack
+export const RestaurantScreen = ({ navigation }) => {
     const { restaurants, isLoading } = useContext(RestaurantsContext)
+    console.log(navigation)
     return (
         <>
             {/* "SafeAreaView" works with "flex:1" only in IOS 
@@ -45,7 +46,16 @@ export const RestaurantScreen = () => {
                 <Search />
                 <RestaurantList
                     data={restaurants}
-                    renderItem={({ item }) => <RestaurantInfoCard restaurant={item} />}
+                    renderItem={({ item }) => {
+                        return (
+                            <Pressable onPress={() => { navigation.navigate('RestaurantDetails') }}>
+                                <RestaurantInfoCard restaurant={item} />
+                            </Pressable>
+
+                        )
+
+                    }
+                    }
                     keyExtractor={(item) => item.name}
 
                 />
