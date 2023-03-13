@@ -1,5 +1,5 @@
 import MapView from "react-native-maps"
-import { Marker } from 'react-native-maps'
+import { Marker, Callout } from 'react-native-maps'
 import styled, { StyledComponent } from "styled-components"
 import { Search } from "../components/search.component"
 import { useContext, useState, useEffect } from "react"
@@ -12,7 +12,7 @@ const Map = styled(MapView)`
     width:100%;
 
 `
-export const MapScreen = () => {
+export const MapScreen = ({ navigation }) => {
 
     const { restaurants = [] } = useContext(RestaurantsContext)
     const { location } = useContext(LocationContext)
@@ -48,7 +48,20 @@ export const MapScreen = () => {
                                 longitude: restaurant.geometry.location.lng
                             }
                         }
-                    />)
+                    >
+
+                        <Callout onPress={() => {
+                            navigation.navigate('RestaurantDetails', {
+                                restaurant: restaurant
+                            })
+                        }}>
+
+                        </Callout>
+                    </Marker>
+
+
+
+                    )
                 })}
 
             </Map>
