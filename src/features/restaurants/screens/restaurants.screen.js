@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
-import { FavoriteContext } from '../../../services/favorites/favorites.context'
+import { FavoritesBar } from '../../../components/Favorites/favorites-bar.component'
 import { Search } from '../components/search.component'
 
 
@@ -31,6 +31,7 @@ const LoadingContainer = styled(View)`
 // {navigation} property is gained from the inner components of the stack
 export const RestaurantScreen = ({ navigation }) => {
     const { restaurants, isLoading } = useContext(RestaurantsContext)
+    const [isToggled, setIsToggled] = useState(false)
     return (
         <>
             {/* "SafeAreaView" works with "flex:1" only in IOS 
@@ -43,7 +44,10 @@ export const RestaurantScreen = ({ navigation }) => {
                     </LoadingContainer>
 
                 )}
-                <Search />
+                <Search isFavoritesToggled={isToggled}
+                    onFavoritesToggle={() => setIsToggled(!isToggled)}
+                />
+                {isToggled && <FavoritesBar />}
                 <RestaurantList
                     data={restaurants}
                     renderItem={({ item }) => {
