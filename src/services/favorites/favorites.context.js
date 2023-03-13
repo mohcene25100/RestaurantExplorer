@@ -10,7 +10,7 @@ export const FavoriteContextProvider = ({ children }) => {
         setFavorites([...favorites, restaurant])
     }
     const remove = (restaurant) => {
-        const newFavorites = favorites.filter((x) => { x.placeId !== restaurant.placeId })
+        const newFavorites = favorites.filter((x) => x.placeId !== restaurant.placeId)
         setFavorites(newFavorites)
     }
 
