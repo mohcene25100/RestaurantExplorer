@@ -30,7 +30,6 @@ const LoadingContainer = styled(View)`
 // {navigation} property is gained from the inner components of the stack
 export const RestaurantScreen = ({ navigation }) => {
     const { restaurants, isLoading } = useContext(RestaurantsContext)
-    console.log(navigation)
     return (
         <>
             {/* "SafeAreaView" works with "flex:1" only in IOS 
@@ -48,7 +47,11 @@ export const RestaurantScreen = ({ navigation }) => {
                     data={restaurants}
                     renderItem={({ item }) => {
                         return (
-                            <TouchableOpacity onPress={() => { navigation.navigate('RestaurantDetails') }}>
+                            <TouchableOpacity onPress={() => {
+                                navigation.navigate('RestaurantDetails', {
+                                    restaurant: item
+                                })
+                            }}>
                                 <RestaurantInfoCard restaurant={item} />
                             </TouchableOpacity>
 
