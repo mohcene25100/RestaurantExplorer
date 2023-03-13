@@ -15,6 +15,7 @@ import { RestaurantScreen } from './src/features/restaurants/screens/restaurants
 import { SafeArea } from "./src/components/utility/safe-area.component";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/locations/location.context";
+import { FavoriteContextProvider } from "./src/services/favorites/favorites.context";
 import { Navigation } from './src/infrastructure/navigation'
 import {
   useFonts as useOswald,
@@ -63,11 +64,13 @@ export default App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <LocationContextProvider>
-          <RestaurantsContextProvider>
-            <Navigation />
-          </RestaurantsContextProvider>
-        </LocationContextProvider>
+        <FavoriteContextProvider>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
+              <Navigation />
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
+        </FavoriteContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="dark" />
     </>

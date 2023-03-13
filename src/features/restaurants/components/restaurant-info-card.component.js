@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { SvgXml } from 'react-native-svg'
 import star from '../../../../assets/star'
 import openshop from '../../../../assets/open'
+import { Favorite } from '../../../components/Favorites/favorite.component'
 
 
 
@@ -64,6 +65,7 @@ export const RestaurantInfoCard = ({ restaurant }) => {
         <>
 
             <RestaurantCard elevation={5} >
+                <Favorite />
                 <RestaurantCardCover source={{ uri: photos[0] }} />
                 <Info>
                     <Title>{name}</Title>

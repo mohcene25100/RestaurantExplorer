@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
+import { FavoriteContext } from '../../../services/favorites/favorites.context'
 import { Search } from '../components/search.component'
 
 
