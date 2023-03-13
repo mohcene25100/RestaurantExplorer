@@ -2,7 +2,7 @@ import React from 'react'
 
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
 import { RestaurantScreen } from '../../features/restaurants/screens/restaurants.screen'
-import { RestaurantDetailsScreen } from '../../features/restaurants/screens/restaurants.details'
+import { RestaurantDetailsScreen } from '../../features/restaurants/screens/restaurants.details.screen'
 
 const RestaurantStack = createStackNavigator()
 
