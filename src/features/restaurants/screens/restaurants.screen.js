@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
+import { FavoriteContext } from '../../../services/favorites/favorites.context'
 import { FavoritesBar } from '../../../components/Favorites/favorites-bar.component'
 import { Search } from '../components/search.component'
 
@@ -32,6 +33,7 @@ const LoadingContainer = styled(View)`
 export const RestaurantScreen = ({ navigation }) => {
     const { restaurants, isLoading } = useContext(RestaurantsContext)
     const [isToggled, setIsToggled] = useState(false)
+    const { favorites } = useContext(FavoriteContext)
     return (
         <>
             {/* "SafeAreaView" works with "flex:1" only in IOS 
@@ -47,7 +49,7 @@ export const RestaurantScreen = ({ navigation }) => {
                 <Search isFavoritesToggled={isToggled}
                     onFavoritesToggle={() => setIsToggled(!isToggled)}
                 />
-                {isToggled && <FavoritesBar />}
+                {isToggled && <FavoritesBar favorites={favorites} onNavigate={navigation.navigate} />}
                 <RestaurantList
                     data={restaurants}
                     renderItem={({ item }) => {
