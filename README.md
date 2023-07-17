@@ -1,8 +1,8 @@
 # <p align="center">Restaurant Explorer App</p>
 
 
-<p align="center"><img src="https://github.com/mohcene25100/RestaurantExplorer/tree/main/assets/home.jpg" alt="RestaurantExplorer home" style="max-width: 100% !important; height:900px">
-<img src="https://github.com/mohcene25100/RestaurantExplorer/tree/main/assets/map.jpg" alt="RestaurantExplorer map" style="max-width: 100% !important; height:900px"></p>
+<p align="center"><img src="https://github.com/mohcene25100/RestaurantExplorer/blob/main/assets/home.jpg" alt="RestaurantExplorer home" style="max-width: 100% !important; height:900px">
+<img src="https://github.com/mohcene25100/RestaurantExplorer/blob/main/assets/map.jpg" alt="RestaurantExplorer map" style="max-width: 100% !important; height:900px"></p>
 <p align="center">✨🚀<em>RestaurantExplorer, a cross-platform mobile application that allows users to explore a wide range of restaurants and discover interesting dining options. With its intuitive interface and comprehensive features, RestaurantExplorer provides a convenient and user-friendly platform for users to find, evaluate, and navigate through various restaurants.
 <br>
 Built from scratch with React Native.</em>✨🚀</p>
